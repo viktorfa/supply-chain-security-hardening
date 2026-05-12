@@ -10,9 +10,8 @@
 | pnpm | `~/.config/pnpm/config.yaml` | `~/Library/Preferences/pnpm/config.yaml` | `%LOCALAPPDATA%\pnpm\config\config.yaml` |
 | Bun | `~/.bunfig.toml` | `~/.bunfig.toml` | `%USERPROFILE%\.bunfig.toml` |
 | uv | `~/.config/uv/uv.toml` | `~/.config/uv/uv.toml` | `%APPDATA%\uv\uv.toml` |
-| Cargo | `~/.cargo/config.toml` | `~/.cargo/config.toml` | `%USERPROFILE%\.cargo\config.toml` |
 
-pip and Go use environment variables — see below.
+pip uses an environment variable — see below.
 
 ## Contents
 
@@ -48,15 +47,6 @@ save = true
 exclude-newer = "3 days"
 ```
 
-### Cargo — `config.toml`
-```toml
-[net]
-git-fetch-with-cli = true
-
-[registries.crates-io]
-protocol = "sparse"
-```
-
 ### pip — environment variable
 
 | OS | How |
@@ -65,12 +55,6 @@ protocol = "sparse"
 | Windows | `setx PIP_UPLOADED_PRIOR_TO P3D` (PowerShell, persists across sessions) |
 
 Requires pip ≥ 26.1.
-
-### Go — environment variable
-
-Cross-platform: `go env -w GOFLAGS=-mod=readonly` writes to Go's own env file, no shell-rc edit needed.
-
-Also ensure Go ≥ 1.25.10 or ≥ 1.26.3 (CVE-2026-42501).
 
 ## When `ignoreScripts=true` blocks a real package
 
