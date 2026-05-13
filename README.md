@@ -28,6 +28,7 @@ fund=false
 ```yaml
 minimumReleaseAge: 4320       # 3 days, in minutes
 ignoreScripts: true
+blockExoticSubdeps: true
 ```
 
 ### Bun — `.bunfig.toml`
